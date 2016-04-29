@@ -34,9 +34,9 @@ class MiniLisp(cmd.Cmd):     # See https://docs.python.org/2/library/cmd.html
            In that case we execute the line as Python code.
         """
         result = yacc.parse(line)
-        s = lisp_str(result)
-        if s != 'nil':
-            print s
+        print result
+        import lis
+        print lis.eval(result)
 
 if __name__ == '__main__':
         ml = MiniLisp()
