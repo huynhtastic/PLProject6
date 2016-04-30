@@ -8,7 +8,7 @@ import ply.lex as lex
 
 # List of token names.   
 tokens = ('QUOTE', 'SIMB', 'NUM', 'LPAREN', 'RPAREN', \
-'NIL', 'TRUE', 'FALSE', 'TEXT')
+'NIL', 'TRUE', 'FALSE', 'TEXT', 'LET', 'IF')
 
 # Reserved words
 reserved = {
@@ -25,7 +25,7 @@ t_FALSE = r'\#f'
 def t_NUM(t):
     r'\d+'
     try:
-        t.value = int(t.value)    
+        t.value = int(t.value)
     except ValueError:
         print "Line %d: Number %s is too large!" % (t.lineno,t.value)
         t.value = 0
